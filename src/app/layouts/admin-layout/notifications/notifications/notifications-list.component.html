@@ -1,0 +1,136 @@
+<div class="main-content">
+  <nav class="navbar navbar-expand-lg    " >
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <a class="navbar-brand titlePage"
+           >
+                    <i class="fa fa-bell">   </i>
+
+                    الاشعارات 
+          </a>
+
+          <span > <i class="fas fa-arrow-circle-right"></i></span>
+
+  
+          <a class="navbar-brand titlePage"  
+          data-toggle="modal"
+          data-target="#exampleModal">
+            <i class="fas fa-plus-circle"
+            data-toggle="modal"
+            data-target="#exampleModal">
+          </i>
+            أضافة اشعار
+          </a>
+        </div>
+      
+        <div class="justify-content-end" id="navigation">
+    
+            <ul class="navbar-nav">
+           
+                <li class="nav-item ">
+                
+                  <input class="input100" type="text" name="username" placeholder="بحث"
+                  name="search"
+                 >
+                  <span class="symbol-input100">
+                    <i class="fa fa-search"></i>
+        
+                  </span>
+                </li>
+             
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+  </div>
+  
+  <!-- modal Add-->
+ <div class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered  modal-lg"
+    role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"
+          id="exampleModalLabel">
+
+          <div class="row">
+
+       
+
+            <div class="text-center">
+              <a class="titleheader">
+                أضافة اشعار </a>
+            </div>
+
+
+          </div>
+
+        </h5>
+
+
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <form>
+            <div class="row">
+
+              <div class="form-group col-md-12 col-sm-6">
+                <label> العنوان 
+                </label>
+                <input class="form-control"
+                  name="title"
+                  [(ngModel)]="notification.title"
+                  autocomplete="off">
+              </div>
+            </div>
+
+
+
+            <div class="row">
+
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> الإشعار 
+                </label>
+             <textarea name="body" id="" cols="80" rows="10"
+             [(ngModel)]="notification.body"></textarea>
+
+
+
+              </div>
+          
+            </div>
+
+
+
+          </form>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 mx-auto">
+            <button class="btn btn-primary btn-lg btn-block"
+              type="button"
+              (click)="create()">حفظ
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 mx-auto">
+            <button type="button"
+              class="btn bg-cancel btn-block "
+              data-dismiss="modal"
+              (click)="cancel()"> إلغاء </button>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div> 
+<!--end add-->

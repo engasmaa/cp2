@@ -1,0 +1,187 @@
+.table-bordered {
+    border: 2px solid #49bcc4;
+  
+  
+  }
+  .fa-arrow-circle-right{
+  color : #49bcc4}
+  
+  th{
+      border: 2px solid #49bcc4;
+      border-bottom: 2px solid #49bcc4;
+      text-align: center;
+      color: #49bcc4;
+      font-family: Arabic;
+  
+  
+  
+  }
+  .modal-title{
+    font-size: 15px;
+    text-align: center;
+    font-family: Arabic;
+  }
+  td{
+      border: 2px solid #49bcc4;
+      border-bottom: 2px solid #49bcc4;
+      // border-top: 3px solid transparent;
+  
+  }
+  .titlePage{
+      color: #49bcc4 !important;
+      font-family: Arabic !important;
+  }
+  .fa-plus-circle:before {
+      content: "\f055";
+      margin-left: 5px;
+    }
+  
+  .input100 {
+      font-family: Arabic;
+      font-size: 15px;
+      line-height: 1.2;
+      color: white;
+      height: 40px;
+      display: block;
+      background: white;
+      border-radius: 25px;
+      width: 84%;
+      border-top-color: #49bcc4 !important;
+      border: 2px solid #49bcc4;
+      padding: 0 30px 0 53px;
+      }
+      .symbol-input100 {
+          font-size: 15px;
+          color: #49bcc4 !important;
+          
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: flex;
+          align-items: center;
+          position: absolute;
+          border-radius: 25px;
+          direction: ltr;
+          width: 21%;
+          bottom: 0;
+          height: 100%;
+          pointer-events: none;
+          
+          -webkit-transition: all 0.4s;
+          -o-transition: all 0.4s;
+          -moz-transition: all 0.4s;
+          transition: all 0.4s;
+          }
+          
+          ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+              color: #49bcc4 !important;
+              opacity: 1; /* Firefox */
+            }
+            
+            :-ms-input-placeholder { /* Internet Explorer 10-11 */
+              color: #49bcc4 !important;
+            }
+            
+            ::-ms-input-placeholder { /* Microsoft Edge */
+              color: #49bcc4 !important;
+            }
+            .Title{
+              margin-top: 4px;
+      padding-left: 20%;
+            }
+
+
+            .click{
+background-color: #49bcc4 !important;
+font-family: Arabic;
+font-size: 30px !important;
+            }
+label{
+    color: #49bcc4;
+    font-size: 20px !important;
+    font-family: Arabic;
+    float: right;
+
+}
+
+
+
+.control-group {
+    display: inline-block;
+    vertical-align: top;
+    background: #fff;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    padding: 30px;
+    width: 200px;
+    height: 210px;
+    margin: 10px;
+  }
+  .card-header-d{
+    background-color: #95afc0 !important;
+  }
+  
+  
+  .control-group {
+    display: inline-block;
+    vertical-align: top;
+    background: #fff;
+    text-align: left;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    padding: 30px;
+    width: 200px;
+    height: 210px;
+    margin: 10px;
+  }
+  .control {
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  .control__indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+  }
+
+  .form-control {
+    border: 1px solid #E3E3E3;
+    border-radius: 10px;
+    color: #49bcc4;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    box-shadow: none;
+    height: 50px;
+    font-family: Arabic !important;
+    text-align: center !important;
+  }
+  .modal-header {
+    background-color: #49bcc4 !important;
+    color: white;
+    font-family: Arabic !important;
+    font-size: 20px !important;
+  }
+  .btn-primary{
+background-color: #49bcc4;
+color: white;
+font-size: 15px;
+font-family: Arabic;
+  }
+  .btn-secondary {
+    background-color: #137075;
+color: white;
+font-size: 15px;
+font-family: Arabic;
+  }

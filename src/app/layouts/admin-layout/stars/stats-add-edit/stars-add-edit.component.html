@@ -1,0 +1,111 @@
+<div class="main-content">
+
+ 
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          <form name="form"
+          #form="ngForm">
+       
+
+         
+
+          <div class="row">
+            <div class="form-group col-lg-12 col-sm-6 ">
+              <label> name Arabic
+              </label>
+              <input class="form-control"
+                [(ngModel)]="artist.nameAr"
+                #nameAr=ngModel
+                name="nameAr"
+                required>
+            </div>
+       
+          </div>
+
+
+          <div class="row">
+        
+            <div class="form-group col-lg-12 col-sm-6 ">
+              <label> name 
+              </label>
+              <input class="form-control"
+                [(ngModel)]="artist.name"
+                #name=ngModel
+                name="name"
+                required>
+            </div>
+          </div>
+
+
+         
+    
+          <div class="row">
+            <div class="form-group col-lg-12 col-sm-6 ">
+              <label> Extension 
+              </label>
+              <input class="form-control"
+                [(ngModel)]="artist.extension"
+                #extension=ngModel
+                name="extension"
+                required>
+            </div>
+
+          
+          </div>
+
+      
+    
+    
+
+   
+  
+    
+        <div class="row" style="margin-bottom: 25%; margin-top: 5%;">
+          <div
+          class="col-md-12 col-sm-12 mx-auto"
+          style="position:relative;"
+      >
+          <div class="upload-container services-image" #SlideImg>
+              <input
+                  #image
+                  name="image"
+                  class=" "
+                  autocomplete="off"
+                  (change)="onFileChanged($event,'image')"
+                  type="file"
+                  accept="image/*"  >
+              <p><i class="fa fa-window-close" (click)="changebackground(SlideImg,'UserImageURL',true,'image')"></i></p>
+          </div>
+      </div>
+      </div>
+    
+
+        </form>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 mx-auto">
+            <button class="btn btn-primary btn-lg btn-block"
+              type="button"
+              (click)="save()">حفظ 
+            </button>
+          </div>
+          <div class="col-md-6 col-sm-6 mx-auto">
+              <button type="button"
+              class="btn btn-danger btn-lg btn-block"
+              routerLink  ="/pages/stars/list"> إلغاء </button>
+  
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  

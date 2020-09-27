@@ -1,0 +1,120 @@
+.navbar-absolute {
+  background-color: white;
+}
+
+.table-bordered {
+  border: 2px solid #49bcc4;
+
+}
+.fa-arrow-circle-right{
+color : #49bcc4}
+
+td{
+  text-align: center;
+}
+.fa-edit{
+  color:#49bcc4
+}
+.fa-trash{
+  color: #49bcc4;
+  margin-right: 20px;
+}
+
+
+th{
+    border: 2px solid #49bcc4;
+    border-bottom: 2px solid #49bcc4;
+    text-align: center;
+    color: #49bcc4;
+    font-family: Arabic;
+
+
+
+}
+td{
+    border: 2px solid #49bcc4;
+    border-bottom: 2px solid #49bcc4;
+    // border-top: 3px solid transparent;
+
+}
+.titlePage{
+    color: #49bcc4 !important;
+    font-family: Arabic;
+}
+.fa-plus-circle:before {
+    content: "\f055";
+    margin-left: 5px;
+}
+
+.input100 {
+    font-family: Arabic;
+    font-size: 15px;
+    line-height: 1.2;
+    color: white;
+    height: 40px;
+    display: block;
+    background: white;
+    border-radius: 25px;
+    border-top-color: #49bcc4 !important;
+    border: 2px solid #49bcc4;
+    padding: 0 30px 0 53px;
+    }
+    .symbol-input100 {
+        font-size: 15px;
+        color: #49bcc4 !important;
+        
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        border-radius: 25px;
+        direction: ltr;
+        width: 21%;
+        bottom: 0;
+        height: 100%;
+        pointer-events: none;
+        
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+        }
+        
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: #49bcc4 !important;
+            opacity: 1; /* Firefox */
+          }
+          
+          :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #49bcc4 !important;
+          }
+          
+          ::-ms-input-placeholder { /* Microsoft Edge */
+            color: #49bcc4 !important;
+          }
+
+          .Title{
+            margin-top: 4px;
+           padding-left: 20%;
+          }
+          li{
+         color: #49bcc4;
+         cursor: pointer;
+          }
+        
+          h5{
+            color: #49bcc4;
+            font-size: 20px;
+            font-family: Arabic;
+          }
+          .activeNumber{
+            color: #0a3f42;
+          }
+          .btn-primary{
+            background-color: #49bcc4;
+
+          }
+

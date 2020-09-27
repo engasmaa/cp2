@@ -1,0 +1,178 @@
+
+
+
+<div class="main-content">
+  <nav class="navbar navbar-expand-lg    " >
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <a class="navbar-brand titlePage" >
+                    <i class="fa fa-users"> </i>
+                    المستخدمين
+          </a>
+          <span > <i class="fas fa-arrow-circle-right"></i></span>
+
+<!--   
+          <a class="navbar-brand titlePage" 
+          data-toggle="modal"
+          data-target="#exampleModal">
+            <i class="fas fa-plus-circle" 
+            data-toggle="modal"
+            data-target="#exampleModal"
+            (click)="openAddModal()"></i>
+            أضافة مستخدم
+          </a>
+           -->
+        </div>
+      
+        <div class="justify-content-end" id="navigation">
+    
+            <ul class="navbar-nav">
+           
+                <li class="nav-item ">
+                
+                  <input class="input100" type="text" name="username" placeholder="بحث"
+                  name="search"
+                 >
+                  <span class="symbol-input100">
+                    <i class="fa fa-search"></i>
+                  </span>
+                </li>
+             
+            </ul>
+        </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm12">
+        <div class="card card-plain">
+      
+          <div class="card-body">
+            <div class="table-responsive">
+
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">المسلسل</th>
+                    <th scope="col">أسم المستخدم</th>
+                    <th scope="col">البريد الألكتروني</th>
+                    <th scope="col">طبيعة المستخدم</th>
+                    <th scope="col"> أختيارات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let prop of UserList  ;
+                  let i=index"> 
+
+                    <td> {{prop.id}} </td>
+                    <td> {{prop.name}}</td>
+                    <td> {{prop.email}} </td>
+                    <td> {{prop.role}}</td>
+
+                    <td>
+                        <span   (click)="updateRole(prop.id)"  data-toggle="modal" data-target="#EditRole"
+                           > تعديل طبيعه المستخدم </span> |
+                        <a  (click)="delete(prop.id)" > حذف المستخدم </a>|
+                        <a    (click)="changePass(prop.id)"  data-toggle="modal" data-target="#chnagePass"
+                        > تعديل الرقم السرى </a>|
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="Pagination" >
+    <a (click)="navigate(1)"> next</a>
+    <a (click)="navigate(2)"> prev</a>
+  </nav>
+</div>
+
+
+
+<div class="modal fade" id="EditRole" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <div class="row">
+            <div class="text-center">
+              <a class="titleheader">تعديل طبيعه المستخدم </a>
+            </div>
+          </div>
+        </h5>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <form  #UpdateRole = "ngForm" (ngSubmit) = "onClickSubmit(UpdateRole.value  )">
+            <input type="text" class="form-control" [(ngModel)]='userObj.name' name="username">
+            <div class="row"> 
+              <label for="Roles"> اختار طبيعه المستخدم</label>
+              <select name="Roles" id="Roles" [(ngModel)]='admin'>
+                <option value="1">Admin</option>
+
+                <option value="2">Client</option>
+              </select>
+            </div>
+            <div class="row text-center"> 
+              <input type="submit" value="حفظ" class="btn btn-primary ">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="chnagePass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <div class="row">
+            <div class="text-center">
+              <a class="titleheader">تعديل الرقم السرى المستخدم </a>
+            </div>
+          </div>
+        </h5>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <form  #chnagePass = "ngForm" (ngSubmit) = "onClickSubmit_changePass(chnagePass.value  )">
+           
+            <div class="row"> 
+              <label for="name"> الاسم</label>
+              <input type="text" class="form-control" [(ngModel)]='userObj.name' name="name" id="name" readonly>
+            </div>
+
+            <div class="row"> 
+              <label for="mail"> الايميل</label>
+              <input type="text" class="form-control" [(ngModel)]='userObj.email' name="mail" id="mail" readonly>
+            </div>
+           <div class="row"> 
+            <label for="pass"> الرقم السرى</label>
+            <input type="text" class="form-control" [(ngModel)]='pass' name="pass" id="pass" ngModal>
+           </div>
+
+            <div class="row text-center"> 
+              <input type="submit" value="حفظ" class="btn btn-primary ">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

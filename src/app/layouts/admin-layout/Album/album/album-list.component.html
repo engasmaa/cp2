@@ -1,0 +1,360 @@
+<div class="main-content">
+    <nav class="navbar navbar-expand-lg    " >
+      <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand titlePage" >
+              <i class="fas fa-music ">   </i>
+                الألبوم
+            </a>
+            <span > <i class="fas fa-arrow-circle-right"></i></span>
+            <a class="navbar-brand titlePage"  data-toggle="modal" data-target="#CreateAlbum"  >
+              <i class="fas fa-plus-circle"    data-toggle="modal" data-target="#CreateAlbum"   ></i>
+              أضافة ألبوم
+            </a>
+            
+          </div>
+          <div class="justify-content-end" id="navigation">
+              <ul class="navbar-nav">
+                  <li class="nav-item ">
+                    <form  #Search="ngForm" (ngSubmit) = "Search_Term(Search.value)"    >
+                      <input  type="text"    name="search"  ngModel >
+                      <input type="submit" value="search">
+                    </form>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm12">
+          <div class="card card-plain">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr  >
+                      <th scope="col">المسلسل</th>
+                      <th scope="col"> العنوان </th>
+                      <th scope="col">Title </th>
+                      <th scope="col"> الصوره </th>
+                      <th scope="col"> نوع الألبوم </th>
+                      <th scope="col"> اسم الفنان</th>
+                      <th scope="col">  اللغة</th>
+                      <th scope="col">  تاريخ نشر الالبوم</th>
+                      <!-- <th scope="col"> هل هو مميز </th> -->
+                      <th scope="col">  </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let prop of albumList | Filter :term ;
+                    let i=index"> 
+                      <td> {{ prop.id}} </td>
+                      <td> {{ prop.titleAr}} </td>
+                      <td> {{ prop.title}} </td>
+                      <td> <img src= {{baseUrl+prop.image}}  alt="" srcset=""  style="width: 30px; height: 30px;"> </td>
+                      <td> {{ prop.albumCategory.title}} </td>
+                      <td> {{ prop.artist.name}} </td>
+                      <td> {{ prop.language.title }} </td>
+                      <td> {{ prop.realeaseDate}} </td>
+                      <!-- <td> {{ prop.isFeatured}} </td> -->
+                      <td>
+                        <i class="fa fa-edit " title="تعديل " (click)="fill(prop)" 
+                          data-toggle="modal" data-target="#EditAlbum"></i>
+                        <i class="fa fa-trash" title="مسح"   (click)="delete(prop.id)"></i>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="Pagination" >
+      <a (click)="navigate(1)"> next</a>
+      <a (click)="navigate(2)"> prev</a>
+    </nav>
+
+</div>
+
+
+<!-- ******** create ********* -->
+<div class="modal fade" id="CreateAlbum" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <div class="row">
+            <div class="text-center">
+              <a class="titleheader"> اضافه البوم جديد </a>
+            </div>
+          </div>
+        </h5>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <form #AlbumForm = "ngForm" (ngSubmit) = "onClickSubmit(AlbumForm.value , 0 ,AlbumForm )" >
+            <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <!-- <label> المغنى  </label> -->
+
+                <mat-form-field class="example-full-width">
+                  <input type="text"
+                         placeholder="اكتب اسم المغنى"
+                         aria-label="Number"
+                         matInput
+                         [formControl]="myControl"
+                         [matAutocomplete]="auto"   >
+            
+                  <mat-autocomplete #auto="matAutocomplete"   (optionSelected)="onShopSelectionChanged($event)"  >
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name"   [id]="option.id"  #test >
+                      {{option.name}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </div>
+            </div>
+            <!-- ** -->
+            <div class="row">
+              <div class="form-group col-md-6 col-sm-6">
+                <label>  العنوان باللغه الانجليزيه </label>
+                <input class="form-control" name="title"  ngModel >
+              </div>
+            </div>
+            <!-- ** -->
+            <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> العنوان باللغه العربيه </label>
+                <input class="form-control"  name="titleAr" ngModel >
+              </div>
+            </div>
+            <!-- ** -->
+            <div class="row">
+              <label > رفع الصوره</label>
+              <div class="image-upload">
+                <img [src]="imageSrc" style="max-width:100px;max-height:100px" name="image" ngModel />
+                <input name="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)" />
+              </div> 
+            </div>
+            <!-- ** -->
+            <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> اللغه </label>
+
+                <select name="languageId" id="languageId" class="form-control"   ngModel >
+                  <option  *ngFor ="let lang of langList " [value]="lang.id">
+                     {{lang.titleAr }}
+                  </option>
+                </select>
+              </div>
+            </div>
+             <!-- ** -->
+             <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> نوع الالبوم </label>
+                <select name="albumCategoryId"  class="form-control"   ngModel >
+                  <option  *ngFor ="let AlbumCat of AlbumCatList " [value]="AlbumCat.id">
+                     {{AlbumCat.titleAr }}
+                  </option>
+                </select>
+              </div>
+            </div>
+             <!-- ** -->
+             <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> تاريخ الالبوم </label>
+                <input class="form-control"  type="date" name="realeaseDate" ngModel >
+              </div>
+            </div>
+             <!-- ** -->
+             <!-- <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> هل هذا الالبوم مميز </label>
+                <input class="form-control"  name="isFeatured"  ngModel >
+              </div>
+            </div> -->
+              <!-- ** -->
+            <div class="row">
+              <div class="col-md-12 col-sm-12 mx-auto">
+                <input class="btn btn-primary btn-lg btn-block" type = "submit" value = "حفظ">
+              </div>
+            </div>
+              <!-- ** -->
+            <div class="row">
+              <div class="col-md-12 col-sm-12 mx-auto">
+                <button type="button" class="btn bg-cancel btn-block " data-dismiss="modal" > إلغاء </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ********* end create ******** -->
+
+
+<!-- ******** Edit ********* -->
+<div class="modal fade" id="EditAlbum" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">
+          <div class="row">
+            <div class="text-center">
+              <a class="titleheader">تعديل البوم </a>
+            </div>
+          </div>
+        </h5>
+      </div>
+        <div class="modal-body">
+          <form #AlbumFormEdit = "ngForm" (ngSubmit) = "onClickSubmit(AlbumFormEdit.value , 1 , AlbumFormEdit )"  >
+
+            <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> المغنى  </label>
+                <select name="artistId"  class="form-control"      [(ngModel)]='Obj.artistId'    ngModel >
+                  <option  *ngFor ="let Artist of ArtistList " [value]="Artist.id"  >
+                     {{Artist.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <!-- ** -->
+            <div class="row">
+              <div class="form-group col-md-6 col-sm-6">
+                <label>  العنوان باللغه الانجليزيه </label>
+                <input class="form-control" name="title" [(ngModel)]="Obj.title"  ngModel >
+              </div>
+            </div>
+            <!-- ** -->
+            <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> العنوان باللغه العربيه </label>
+                <input class="form-control"  name="titleAr" [(ngModel)]="Obj.titleAr"  ngModel >
+              </div>
+            </div>
+            <!-- ** -->
+            <div class="row">
+                <label> الصوره </label> 
+                <div class="image-upload">
+                  <img [src]="imageSrc"   [(ngModel)]="imageSrc"   style="max-width:100px;max-height:100px" name="image" ngModel />
+                  <input name="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)" />
+                </div> 
+            </div>
+            
+            <!-- ** -->
+            <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> اللغه </label>
+
+                <select name="languageId"  class="form-control"      [(ngModel)]='Obj.languageId'    ngModel >
+                  <option  *ngFor ="let lang of langList " [value]="lang.id"  >
+                     {{lang.title }}
+                  </option>
+                </select>
+
+              </div>
+            </div>
+             <!-- ** -->
+             <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> نوع الالبوم </label>
+                
+                <select name="albumCategoryId"  class="form-control"     [(ngModel)]='Obj.albumCategoryId'     ngModel >
+                  <option  *ngFor ="let AlbumCat of AlbumCatList " [value]="AlbumCat.id"  >
+                     {{AlbumCat.title }}
+                  </option>
+                </select>
+              </div>
+            </div>
+             <!-- ** -->
+             <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> تاريخ الالبوم </label>
+                <input class="form-control" type="date" name="realeaseDate" [(ngModel)]="Obj.realeaseDate"  ngModel >
+              </div>
+            </div>
+             <!-- ** -->
+             <!-- <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> هل هذا الالبوم مميز </label>
+                <input class="form-control"  name="isFeatured"  [(ngModel)]="Obj.isFeatured"  ngModel >
+              </div>
+            </div> -->
+              <!-- ** -->
+            <div class="row">
+              <div class="col-md-12 col-sm-12 mx-auto">
+                <input class="btn btn-primary btn-lg btn-block" type = "submit" value = "حفظ">
+              </div>
+            </div>
+              <!-- ** -->
+            <div class="row">
+              <div class="col-md-12 col-sm-12 mx-auto">
+                <button type="button" class="btn bg-cancel btn-block " data-dismiss="modal" > إلغاء </button>
+              </div>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ********* end Edit ******** -->
+
+<div class="modal fade" id="test" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered  modal-lg  test1" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel2">
+          <div class="row">
+            <div class="text-center">
+              <a class="titleheader">تعديل البوم </a>
+            </div>
+          </div>
+        </h5>
+      </div>
+        <div class="modal-body">
+
+          <form class="example-form   "> 
+            <mat-form-field class="example-full-width">
+              <input type="text"
+                     placeholder=""
+                     aria-label="Number"
+                     matInput
+                     [formControl]="myControl"
+                     [matAutocomplete]="auto">
+        
+              <mat-autocomplete #auto="matAutocomplete"   (optionSelected)="onShopSelectionChanged($event)"  >
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name"   [id]="option.id"  #test >
+                  {{option.name}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+           
+           </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  
+
+
+  
+  
+  
+  
+  

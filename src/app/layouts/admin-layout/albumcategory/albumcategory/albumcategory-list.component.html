@@ -1,0 +1,184 @@
+<div class="main-content">
+
+  <nav class="navbar navbar-expand-lg    ">
+    <div class="container-fluid">
+      <div class="navbar-wrapper">
+        <a class="navbar-brand titlePage">
+          <i class="fas fa-music "> </i>
+          الألبوم
+        </a>
+        <span> <i class="fas fa-arrow-circle-right"></i></span>
+
+        <a class="navbar-brand titlePage" data-toggle="modal" data-target="#exampleModal">
+          <i class="fas fa-plus-circle" data-toggle="modal" data-target="#exampleModal"> </i>
+          أضافة نوع ألبوم
+        </a>
+      </div>
+
+      <div class="justify-content-end" id="navigation">
+        <ul class="navbar-nav">
+          <li class="nav-item ">
+            <input class="input100" type="text" name="username" placeholder="بحث" name="search">
+            <span class="symbol-input100">
+              <i class="fa fa-search justify-content-end"></i>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm12">
+        <div class="card card-plain">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Title </th>
+                    <th scope="col">العنوان </th>
+                    <th scope="col"> الأختيارات </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let prop of albumcategoryList;
+                   let i=index">
+                    <td> {{prop.title}}</td>
+                    <td> {{prop.titleAr}}</td>
+                    <td>
+                      <i class="fa  fa-edit " title="تعديل " (click)="fill(prop)"
+                       data-toggle="modal"
+                        data-target="#basicExampleModal"></i>
+                        
+                      <i class="fa fa-trash " title="مسح " (click)="delete(i)"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <div class="row">
+            <div class="text-center">
+              <a class="titleheader">
+                أضافة نوع ألبوم </a>
+            </div>
+          </div>
+        </h5>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <form>
+            <div class="row">
+              <div class="form-group col-md-6 col-sm-6">
+                <label> Title
+                </label>
+                <input class="form-control" name="title"
+                 [(ngModel)]="albumcategory.title" autocomplete="off">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6 col-sm-6 ">
+                <label> العنوان
+                </label>
+                <input class="form-control" type="titleAr" name="titleAr"
+                 [(ngModel)]="albumcategory.titleAr">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 mx-auto">
+            <button class="btn btn-primary btn-lg btn-block" type="button" (click)="save()">حفظ
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 mx-auto">
+            <button type="button" class="btn bg-cancel btn-block " data-dismiss="modal" (click)="cancel()"> إلغاء
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--end add-->
+<!-- Edit Modal-->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog"
+ aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">
+
+        <div class="row">
+
+          <div class="text-center">
+            <a class="titleheader">
+              تعديل نوع ألبوم </a>
+          </div>
+        </div>
+      </h5>
+    </div>
+    <div class="modal-body">
+
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <div class="form-group col-md-6 col-sm-6 ">
+              <label>
+                Title
+              </label>
+              <input class="form-control" name="title"
+               [(ngModel)]="albumcategory.title" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6 col-sm-6 ">
+              <label>
+                العنوان
+              </label>
+              <input class="form-control" name="titleAr"
+               [(ngModel)]="albumcategory.titleAr" autocomplete="off">
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12 col-sm-12 mx-auto">
+          <button class="btn btn-primary btn-lg btn-block" 
+          type="button" (click)="saveupdate()">حفظ
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 mx-auto">
+          <button type="button" class="btn bg-cancel btn-block "
+           data-dismiss="modal" (click)="cancel()"> إلغاء
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>

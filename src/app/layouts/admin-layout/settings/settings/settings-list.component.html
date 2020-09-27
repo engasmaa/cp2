@@ -1,0 +1,103 @@
+<div class="main-content">
+  <nav class="navbar navbar-expand-lg    " >
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <a class="navbar-brand titlePage" >
+            <i class="fas fa-crogs"></i>
+              اعدادات
+          </a>
+          <span > <i class="fas fa-arrow-circle-right"></i></span>
+          <a class="navbar-brand titlePage" >
+            <i class="fas fa-plus-circle">  </i> تعديل  </a>
+        </div>
+      </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm12">
+        <div class="card card-plain">
+       
+          <div class="card-body">
+            <!-- Button trigger modal -->
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <button type="button" class="btn btn-primary click" (click)="home()">
+                  تغيير   صورة الخلفية في الصفحة الرئيسية
+                </button>
+              </div>
+            </div>
+                    
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <button type="button" class="btn btn-primary click" data-toggle="modal" data-target="#phone-mail-Model">
+                  تغيير البيانات وارقام الهاتف
+                </button>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <button type="button" class="btn btn-primary click" data-toggle="modal" data-target="#aboutUs">
+                  معلومات عنا 
+                </button>
+              </div>
+            </div>
+
+            <div class="modal fade" id="phone-mail-Model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"> تعديل  </h5>
+                  
+                  </div>
+                  <div class="modal-body">
+
+                    <form #dataEdit = "ngForm" (ngSubmit) = "onClickSubmit(dataEdit.value , 1 , dataEdit )"  >
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label"> رقم الهاتف</label>
+                        <input class="form-control"   name ="phone" [(ngModel)] = phone  ngModel>
+                      </div>
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label"> البريد الالكتروني</label>
+                        <textarea class="form-control"   name ="mail" [(ngModel)] = mail      ngModel ></textarea>
+                      </div>
+                      <input type="submit" class="btn btn-primary btn-block" value="حفظ"> 
+                      <button type="button" class="btn btn-secondary btn-block"  data-dismiss="modal">اغلاق</button>
+                </form>
+                </div>
+              </div>
+            </div>
+
+              <div class="modal fade" id="aboutUs" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle"> تعديل  </h5>
+                
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="message-text" class="col-form-label"> رسالة</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                      </div>
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-block">حفظ </button>
+                      <button type="button" class="btn btn-secondary btn-block"  data-dismiss="modal">اغلاق</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </di
+            v>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

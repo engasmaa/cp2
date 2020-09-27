@@ -1,0 +1,41 @@
+.material-icons{
+    color: white !important;
+    font-size: 30px !important;
+
+
+}
+p{
+    color: white;
+    font-family: Arabic !important;
+    font-size: 15px;
+}
+
+.nav li.active > a {
+    background-color: white !important;
+    color: #49bcc4 !important;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
+    & i {
+        color: #49bcc4 !important;
+
+    }
+    & p{
+        color: #49bcc4 !important;
+    }
+    & .fa-users {
+        color: white !important;
+    }
+    
+}
+.users{
+    margin-right: 20% !important;
+
+}
+
+.fa-sign-out-alt {
+    color: white !important;
+    margin-left: 46%;
+
+}
+.fa-bars{
+    margin-right: 15% !important;
+}

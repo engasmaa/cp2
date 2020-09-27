@@ -1,0 +1,171 @@
+<div class="main-content">
+
+  <nav class="navbar navbar-expand-lg    " >
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <a   class="navbar-brand titlePage"
+               >
+                    <i class="fas fa-scroll"
+                > </i>
+                    اعلان
+          </a>
+          <span > <i class="fas fa-arrow-circle-right"></i></span>
+
+          <a class="navbar-brand titlePage" 
+          data-toggle="modal"
+          data-target="#exampleModal">
+            <i class="fas fa-plus-circle"   
+            data-toggle="modal"
+            data-target="#exampleModal">   </i>
+            أضافة أعلان
+           </a>
+        </div>
+      
+        <div class="justify-content-end" id="navigation">
+            <ul class="navbar-nav">
+                <li class="nav-item ">
+                  <input class="input100" type="text" name="username" placeholder="بحث"
+                  name="search"
+                 >
+                 <span class="symbol-input100">
+                  <i class="fa fa-search"></i>
+      
+                </span>
+                </li>
+             
+            </ul>
+        </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+          <form name="form"
+          #form="ngForm">
+          <div class="row">
+            <div class="form-group col-md-2 col-sm-3 ">
+              <label> Order
+              </label>
+              <input class="form-control"
+                [(ngModel)]="annonce.order"
+                #order=ngModel
+                type="number"
+                name="order"
+                required>
+            </div>
+
+            <div class="form-group col-md-10 col-sm-6 ">
+              <label> Title
+              </label>
+              <input class="form-control"
+                [(ngModel)]="annonce.title"
+                #title=ngModel
+                name="title"
+                required>
+            </div>
+
+    
+          </div>
+
+         
+
+          <div class="row">
+            <div class="form-group col-lg-6 col-sm-6 ">
+              <label> Title Arabic
+              </label>
+              <input class="form-control"
+                [(ngModel)]="annonce.titleAr"
+                #titleAr=ngModel
+                name="titleAr"
+                required>
+            </div>
+            <div class="form-group col-lg-6 col-sm-6 ">
+              <label> Url 
+              </label>
+              <input class="form-control"
+                [(ngModel)]="annonce.url"
+                #url=ngModel
+                name="url"
+                required>
+            </div>
+          </div>
+
+         
+    
+          <div class="row">
+            <div class="form-group col-lg-6 col-sm-6 ">
+              <label> Extension 
+              </label>
+              <input class="form-control"
+                [(ngModel)]="annonce.extension"
+                #extension=ngModel
+                name="extension"
+                required>
+            </div>
+
+            <div class="form-group col-lg-6 col-sm-6 ">
+              <label> position 
+              </label>
+              <input class="form-control"
+                [(ngModel)]="annonce.position"
+                #position=ngModel
+                name="position"
+                required>
+            </div>
+          </div>
+
+      
+    
+    
+
+   
+  
+    
+        <div class="row" style="margin-bottom: 25%; margin-top: 5%;">
+          <div
+          class="col-md-12 col-sm-12 mx-auto"
+          style="position:relative;"
+      >
+          <div class="upload-container services-image" #SlideImg>
+              <input
+                  #image
+                  name="image"
+                  class=" "
+                  autocomplete="off"
+                  (change)="onFileChanged($event,'image')"
+                  type="file"
+                  accept="image/*"  >
+              <p><i class="fa fa-window-close" (click)="changebackground(SlideImg,'UserImageURL',true,'image')"></i></p>
+          </div>
+      </div>
+      </div>
+    
+
+        </form>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 mx-auto">
+            <button class="btn btn-primary btn-lg btn-block"
+              type="button"
+              (click)="save()">حفظ 
+            </button>
+          </div>
+          <div class="col-md-6 col-sm-6 mx-auto">
+              <button type="button"
+                class="btn btn-danger btn-lg btn-block"
+                (click)="cancel()" 
+                routerLink  ="/pages/annonce/list" > إلغاء </button>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+  </div>
+  
+  
+
+
+  
+  
+  
+  
